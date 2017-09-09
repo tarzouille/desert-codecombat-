@@ -1,0 +1,32 @@
+// Esquive les canons et collecte 8 gemmes.
+// Fais gaffe, les canons sont prêts à tirer!
+// Bouge lentement avec un déplacement spécial pour les embrouiller.
+
+// This function returns a value from 0 to 30:
+function mod30(n) {
+    if (n >= 30) {
+        return n - 30;
+    } else {
+        return n;
+    }
+}
+
+// This function should return a value from 0 to 40:
+function mod40(n) {
+    // Use an if-statement to return the correct value.
+    if (n>= 40){
+        return n-40;
+    }else{
+        return n;
+    }
+    return n;
+}
+
+// Tu n'as pas besoin de changer le code suivant :
+while (true) {
+    var time = hero.time;
+    var x = mod30(time) + 25;
+    var y = mod40(time) + 10;
+    hero.moveXY(x, y);
+}
+
