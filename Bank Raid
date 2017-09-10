@@ -24,3 +24,32 @@ while(true) {
         coinIndex++;
     }
 }
+__________________________________________________________________________
+// Wait for ogres, defeat them and collect gold.
+
+while(true) {
+    var enemies = hero.findEnemies();
+    // enemyIndex is used to iterate the enemies array.
+    var enemyIndex = 0;
+    // While enemyIndex is less than enemies.length
+    while (enemyIndex < enemies.length) {
+        // Attack the enemy at enemyIndex
+        var enemy = enemies[enemyIndex];
+        hero.attack(enemy);
+        // Increase enemyIndex by one.
+        enemyIndex++;
+    }
+    var coins = hero.findItems();
+    // coinIndex is used to iterate the coins array.
+    var coinIndex = 0;
+    while (coinIndex < coins.length) {
+        // Get a coin from the coins array using coinIndex
+        var coin = coins[coinIndex];
+        var x=coin.pos.x;
+        var y=coin.pos.y;
+        // Collect that coin.
+        hero.moveXY(x, y);
+        // Increase coinIndex by one.
+        coinIndex++;
+    }
+}
