@@ -1,0 +1,17 @@
+// Use while loops to pick out the ogre
+while (true) {
+    var enemies = hero.findEnemies();
+    var enemyIndex = 0;
+    while (enemies.length > 0) {
+        var enemy = enemies[enemyIndex];
+        // "!=" means "not equal to."
+        if (enemy.type != "sand-yak") {
+            // While the enemy's health is greater than 0, attack it!
+            if (enemy.health > 0) {
+                hero.attack(enemy);
+            }
+        }
+    }
+    // Between waves, move back to the center.
+    hero.moveXY(40, 32);
+}
