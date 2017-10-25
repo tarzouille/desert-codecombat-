@@ -1,0 +1,46 @@
+function scoring(enemies) {
+    var target = null;
+    var targetdistance = 0;
+    var enemyIndex = 0;
+    while (enemyIndex < enemies.length) {
+        var enemy = enemies[enemyIndex];
+        hero.say(enemy &enemy.type);
+       // hero.say(enemy.type);
+        if (enemy.type == "thrower") {
+            var distance = hero.distanceTo(enemy);
+            var score = distance / 4;
+            hero.say("score de " &enemy.name &" : " &score);
+            enemy.push(score);
+            enemy.reverse();
+        }
+        enemyIndex += 1;
+    }
+    enemies.sort();
+    enemyIndex = 0;
+    while (enemyIndex < enemies.length) {
+        enemy = enemies[enemyIndex];
+        enemy.shift();
+        enemy.reverse();
+    }
+    return enemies;
+}
+while (true) {
+//    var health = 0;
+    var enemies = hero.findEnemies();
+//    var enemyIndex = 0;
+
+enemies=scoring(enemies);
+
+enemy=enemies[1];
+while (enemy.health>0) {
+    hero.attack(enemy);
+}
+}
+
+while (health < hero.maxHealth - 10) {
+    var mushrooms = hero.findNearestItem();
+    hero.moveXY(mushrooms.pos.x, mushrooms.pos.y);
+    health = hero.health;
+    hero.say(hero.health);
+}
+
